@@ -7,3 +7,4 @@ Notes to self;
     "-l" indicates to link to the specified library (in this case, the CS50 library. 
     "-o" to assign output its common name. wonder why assembly code output isnt ".acout"  
   2. learn the linux directory commands (cd, rm, etc)
+  3. Lloyds shorts are more informative without David's flair. stick with those for learning the details. 
