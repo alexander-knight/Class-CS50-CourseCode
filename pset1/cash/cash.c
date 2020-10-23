@@ -22,7 +22,7 @@ int main(void)
     // printf("Change: %f", change_owed);
     
     int cents, dimes, nickels, pennies;
-    
+    // Subtracts cents until change_owed < 25
     for (cents = 0; change_owed >= 25; cents++)
     {
         change_owed -= 25;
@@ -30,18 +30,21 @@ int main(void)
     // printf("Cents: %i\n", cents);
     // printf("Change: %f", change_owed);
     
+    // Subtracts dime until change owed < 10
     for (dimes = 0; change_owed >= 10; dimes++)
     {
         change_owed -= 10;
     }
     // printf("Dimes: %i\n", dimes);
     
+    // Subtracts nickles until change owed < 5
     for (nickels = 0; change_owed >= 5; nickels++)
     {
         change_owed -= 5;
     }
     // printf("Nickels: %i\n", nickels);
     
+    // subtracts pennies until change_owed < 1
     for (pennies = 0; change_owed >= 1; pennies++)
     {
         change_owed -= 1;
