@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(void)
 {
@@ -13,32 +14,41 @@ int main(void)
         change_owed = get_float("Change Owed: ");
     }
     while (change_owed < 0);
+    
+    // Converting to int to deal with floating point imprecision
+    change_owed = change_owed * 100;
+    change_owed = round(change_owed);
+    change_owed = (int)change_owed;
+    // printf("Change: %f", change_owed);
+    
+    int cents, dimes, nickels, pennies;
+    
+    for (cents = 0; change_owed >= 25; cents++)
+    {
+        change_owed -= 25;
+    }
+    // printf("Cents: %i\n", cents);
+    // printf("Change: %f", change_owed);
+    
+    for (dimes = 0; change_owed >= 10; dimes++)
+    {
+        change_owed -= 10;
+    }
+    // printf("Dimes: %i\n", dimes);
+    
+    for (nickels = 0; change_owed >= 5; nickels++)
+    {
+        change_owed -= 5;
+    }
+    // printf("Nickels: %i\n", nickels);
+    
+    for (pennies = 0; change_owed >= 1; pennies++)
+    {
+        change_owed -= 1;
+    }
+    // printf("Pennies: %i\n", pennies);
+    
+    int coins = cents + dimes + nickels + pennies;
 
-    int cents;
-    for (cents = 0; change_owed > .25; cents++)
-    {
-        change_owed -= .25;
-    }
-    printf("%i\n", cents);
-    int dimes;
-    for (dimes = 0; change_owed > .1; dimes++)
-    {
-       change_owed -= .1;
-    }
-    printf("%i\n", dimes);
-    int nickels;
-    for (nickels = 0; change_owed > .1; nickels++)
-    {
-       change_owed -= .05;
-    }
-    printf("%i\n", nickels);
-    int pennies;
-    for (pennies = 0; change_owed > .1; pennies++)
-    {
-       change_owed -= .01;
-    }
-    printf("%i\n", pennies);
-    int coins = cents + dimes + nickels + cents;
-
-    printf("%i/n", coins);
+    printf("%i\n", coins);
 }
