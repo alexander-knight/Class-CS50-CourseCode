@@ -1,36 +1,37 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(void)
 {
-    // We take the visa card number
+    long long cardnum;
+    // We take the visa card number...
     do
     {
-        unsigned long long cardnum = get_long("Card Number: ");
+        cardnum = get_long_long("Card Number: ");
     }
-    while ( cardnum < 1000000000000 || cardnum > 10000000000000000)
+    // And keep prompting until the number is between these 2 lengths
+    while ( cardnum < (10 ^ 13) || cardnum > (10 ^ 19) );
     
-}
-
-int number_isolator(int cardnum,)
-{
-    ( ( cardnum mod (10^i+1) - cardnum mod (10^i) ) / (10^i) )
+    printf("%ll\n", cardnum);
 }
 
 
-
-// Other idea, using the ltoa and atol function
-
-int cardlen = strlen(ltoa(cardnum));
-int init_sum;
-for (int i = cardlen - 1; i <= 0 ; i += 2)
+int number_isolator(int cardnum)
 {
-    init_sum +=  atol ((cardnum[i])  * 2;
-}
-
-int sec_sum;
-for (int i = cardlen; i <= 0; i += 2)
-{
-    sec_sum += atol (cardnum[i])
+    // Initialise the variable init adder to hold the isolated number before adding it to the check sum
+    int init_adder;
+    
+    // Isolates the number at the 10 ^ (i+1) place
+    for (int i = 0; i < 19; i++ )
+    init_adders = ( ( cardnum % (10 ^ (i+1)) - cardnum % (10 ^ i) ) / (10^i) );
+    // If-statement to sort out every other number
+        // To filter out every other number starting with the ten place
+        if (i % 2 == 0)
+        {
+            init_adder *= 2;
+        }
+    // Then add to the checksum
+    int checksum += init_adder
 }
