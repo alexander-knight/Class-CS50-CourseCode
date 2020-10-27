@@ -7,7 +7,7 @@
 // Prototyping card type identifier function
 int card_type(long cardnum);
 // And the number isolator function
-int number_isolator(int cardnum)
+int number_isolator(int cardnum);
 
 
 int main(void)
@@ -23,14 +23,27 @@ int main(void)
             || cardnum > (pow (10, 19))
           );
 
-    printf("%l\n", cardnum);
+    printf("%li\n", cardnum);
+    
+    // Initialise the variable init adder to hold the isolated number before adding it to the check sum
+    long init_adder;
 
-
-
-
-        
+    // Isolates the number at the 10 ^ (i+1) place
+    for (double i = 0; i < 19; i++ )
+    {
+        init_adder = (
+                     ( 
+                       cardnum % long (pow (10, (i+1)))
+                     - cardnum % long (pow (10, (i  )))
+                     )
+                     / (pow (10, i) )
+                     );
+    }
+    printf("%li\n", init_adder);
+    
 }
 
+// Spare Code i need to fit up there
 
 int number_isolator(int cardnum)
 {
@@ -67,3 +80,5 @@ int card_type(long cardnum)
 {
 
 }
+
+
